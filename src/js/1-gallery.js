@@ -1,6 +1,4 @@
-// Описаний в документації
 import SimpleLightbox from 'simplelightbox';
-// Додатковий імпорт стилів
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const images = [
@@ -87,20 +85,18 @@ function imgTemplate({ preview, original, description }) {
 `;
 }
 
-function imagesTemplate(arr) {
+function imgsTemplate(arr) {
   return arr.map(imgTemplate).join('');
 }
 
-function renderImg() {
-  const markup = imagesTemplate(images);
+function renderImgs() {
+  const markup = imgsTemplate(images);
   refs.listEl.innerHTML = markup;
 }
 
-renderImg();
+renderImgs();
 
-console.log('hello');
-
-const lightbox = new SimpleLightbox('.gallery a', {
-  captionDelay: '250',
+new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
+  captionDelay: '250',
 });
